@@ -10,7 +10,12 @@ describe('books routes', () => {
   });
   it('/books/:id should return a list of book by id with author', async() => {
     const res = await request(app).get('/books/1');
-    expect(res.body.length).toEqual(2);
+    expect(res.body).toEqual({    
+      'id': expect.any(String),
+      'title': expect.any(String),
+      'publisher': expect.any(String),
+      'release': expect.any(Number) } 
+    );
   });
   it('/books should return a list of books', async() => {
     const res = await request(app).get('/books');
