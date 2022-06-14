@@ -19,6 +19,21 @@ describe('author routes', () => {
     });
     expect(res.body).toEqual(expected);
   });
+  it('/authors/:id should return an author with list of books', async () => {
+    const res = await request(app).get('/authors/1');
+    expect(res.body).toEqual({
+      'id': expect.any(String),
+      'name': expect.any(String),
+      'dob': expect.any(Number),
+      'pob': expect.any(String),
+      'books': expect.arrayContaining([{
+        'id': expect.any(Number),
+        'title': expect.any(String),
+        'publisher': expect.any(String),
+        'release': expect.any(Number)
+      }])
+    });
+  });
   afterAll(() => {
     pool.end();
   });

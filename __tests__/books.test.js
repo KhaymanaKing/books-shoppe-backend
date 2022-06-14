@@ -4,6 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const { Book } = require('../lib/models/Books');
 
+
 describe('books routes', () => {
   beforeEach(() => {
     return setup(pool);
@@ -14,7 +15,13 @@ describe('books routes', () => {
       'id': expect.any(String),
       'title': expect.any(String),
       'publisher': expect.any(String),
-      'release': expect.any(Number) } 
+      'release': expect.any(Number), 
+      'authors': expect.arrayContaining([{
+        'id': expect.any(Number),
+        'dob': expect.any(Number),
+        'name': expect.any(String),
+        'pob': expect.any(String),
+      }]) } 
     );
   });
   it('/books should return a list of books', async() => {
@@ -25,7 +32,8 @@ describe('books routes', () => {
         id: book.id, 
         title: book.title, 
         publisher: book.publisher, 
-        release: book.release };
+        release: book.release, 
+      };
     });
     expect(res.body).toEqual(expected);
   });
