@@ -8,13 +8,13 @@ CREATE TABLE books (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title VARCHAR,
     publisher VARCHAR,
-    release DATE
+    release INT
 );
 
 CREATE TABLE authors (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR,
-    dob DATE,
+    dob INT,
     pob VARCHAR
 );
 
@@ -32,11 +32,11 @@ INSERT INTO books (
     release
 )
 VALUES 
-('Big Trouble', 'Putnam', '1999-09-09' ),
-('Name of the Wind', 'DAW Books', '2007-03-27'),
-('The Wise Mans Fear', 'DAW Books', '2011-03-01'),
-('John Dies at the End', 'Thomas Dunne Books', '2012-12-24'),
-('This Book is Full of Spiders', 'Thomas Dunne Books', '2013-10-08');
+('Big Trouble', 'Putnam', '09091999' ),
+('Name of the Wind', 'DAW Books', '03272007'),
+('The Wise Mans Fear', 'DAW Books', '01032011'),
+('John Dies at the End', 'Thomas Dunne Books', '24122012'),
+('This Book is Full of Spiders', 'Thomas Dunne Books', '08102013');
 
 INSERT INTO authors (
     name,
@@ -45,9 +45,9 @@ INSERT INTO authors (
 )
 VALUES
 
-('Dave Barry', '1947-07-03', 'Armonk, New York'),
-('Patrick Rothfuss', '1973-06-06', 'Madison, Wuscibsub'),
-('Jason Pargin', '1974-01-10', 'Lawrenceville, Illinois');
+('Dave Barry', '03071947', 'Armonk, New York'),
+('Patrick Rothfuss', '06061973', 'Madison, Wuscibsub'),
+('Jason Pargin', '01101974', 'Lawrenceville, Illinois');
 
 INSERT INTO author_book(
     book_id,
