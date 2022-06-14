@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-
+const { Author } = require('../lib/models/Authors');
 describe('author routes', () => {
   beforeEach(() => {
     return setup(pool);
@@ -12,12 +12,12 @@ describe('author routes', () => {
     const authors = await Author.getAll();
     const expected = authors.map((author) => {
       return{
-        id: authors.id,
-        name: authors.name,
-        dob: authors.dob,
-        pob: authors.pob };
+        id: author.id,
+        name: author.name,
+        dob: author.dob,
+        pob: author.pob };
     });
-    expect(res.body).toEqueal(expected);
+    expect(res.body).toEqual(expected);
   });
   afterAll(() => {
     pool.end();
