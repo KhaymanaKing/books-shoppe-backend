@@ -8,14 +8,9 @@ describe('books routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  xit('/books/:id should return a list of book by id', async() => {
+  it('/books/:id should return a list of book by id with author', async() => {
     const res = await request(app).get('/books/1');
-    expect(res.body).toEqual({
-      'id': '1',
-      'title': 'Big Trouble',
-      'publisher': 'Putnam',
-      'release': '1999-09-09'
-    });
+    expect(res.body.length).toEqual(2);
   });
   it('/books should return a list of books', async() => {
     const res = await request(app).get('/books');
@@ -33,3 +28,8 @@ describe('books routes', () => {
     pool.end();
   });
 });
+
+// 'id': '1',
+// 'title': 'Big Trouble',
+// 'publisher': 'Putnam',
+// 'release': 9091999

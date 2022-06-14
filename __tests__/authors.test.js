@@ -10,7 +10,6 @@ describe('author routes', () => {
   it('/authors should return a list of authors', async() => {
     const res = await request(app).get('/authors');
     const authors = await Author.getAll();
-    console.log('authors', authors);
     const expected = authors.map((author) => {
       return{
         id: author.id,
