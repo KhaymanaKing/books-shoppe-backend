@@ -20,7 +20,7 @@ describe('books routes', () => {
   it('/books should return a list of books', async() => {
     const res = await request(app).get('/books');
     const books = await Book.getAll();
-    const expected = books.map((book) =>{
+    const expected = books.map((book) => {
       return { id: book.id, title: book.title };
     });
     expect(res.body).toEqual(expected);
