@@ -34,6 +34,21 @@ describe('author routes', () => {
       }])
     });
   });
+  it('should add a new author', async() => {
+    const res = await request(app)
+      .post('/authors')
+      .send({
+        name: 'Khayman',
+        dob: 1990,
+        pob: 'USA'
+      });
+    expect(res.status).toBe(200);
+    expect(res.body).toBe({
+      'name': 'Khayman',
+      'dob': 1990,
+      'pob': 'USA'
+    });  
+  });
   afterAll(() => {
     pool.end();
   });

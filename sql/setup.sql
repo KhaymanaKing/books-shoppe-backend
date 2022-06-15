@@ -32,11 +32,11 @@ INSERT INTO books (
     release
 )
 VALUES 
-('Big Trouble', 'Putnam', '09091999' ),
-('Name of the Wind', 'DAW Books', '03272007'),
-('The Wise Mans Fear', 'DAW Books', '01032011'),
-('John Dies at the End', 'Thomas Dunne Books', '24122012'),
-('This Book is Full of Spiders', 'Thomas Dunne Books', '08102013');
+('Big Trouble', 'Putnam', '1999' ),
+('Name of the Wind', 'DAW Books', '2007'),
+('The Wise Mans Fear', 'DAW Books', '2011'),
+('John Dies at the End', 'Thomas Dunne Books', '2012'),
+('This Book is Full of Spiders', 'Thomas Dunne Books', '2013');
 
 INSERT INTO authors (
     name,
@@ -45,9 +45,9 @@ INSERT INTO authors (
 )
 VALUES
 
-('Dave Barry', '03071947', 'Armonk, New York'),
-('Patrick Rothfuss', '06061973', 'Madison, Wuscibsub'),
-('Jason Pargin', '01101974', 'Lawrenceville, Illinois');
+('Dave Barry', '1947', 'Armonk, New York'),
+('Patrick Rothfuss', '1973', 'Madison, Wuscibsub'),
+('Jason Pargin', '1974', 'Lawrenceville, Illinois');
 
 INSERT INTO author_book(
     book_id,
