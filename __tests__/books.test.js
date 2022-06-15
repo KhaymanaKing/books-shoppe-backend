@@ -37,12 +37,19 @@ describe('books routes', () => {
     });
     expect(res.body).toEqual(expected);
   });
+
+  it('should add new book', async () => {
+    const resp = await request(app)
+      .post('/books')
+      .send({ title: 'Zoey Punches the Future', release:10132020, publisher: 'Thomas Dunne Books'  });
+    expect(resp.status).toBe(200);
+    expect(resp.body.title).toBe('Zoey Punches the Future');
+    
+  });
   afterAll(() => {
     pool.end();
   });
 });
 
-// 'id': '1',
-// 'title': 'Big Trouble',
-// 'publisher': 'Putnam',
-// 'release': 9091999
+
+
