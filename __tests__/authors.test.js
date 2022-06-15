@@ -43,10 +43,11 @@ describe('author routes', () => {
         pob: 'USA'
       });
     expect(res.status).toBe(200);
-    expect(res.body).toBe({
+    expect(res.body).toEqual({
       'name': 'Khayman',
       'dob': 1990,
-      'pob': 'USA'
+      'pob': 'USA',
+      'id': '4'
     });  
   });
   afterAll(() => {
