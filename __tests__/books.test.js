@@ -39,12 +39,16 @@ describe('books routes', () => {
   });
 
   it('should add new book', async () => {
-    const resp = await request(app)
+    const res = await request(app)
       .post('/books')
-      .send({ title: 'Zoey Punches the Future', release:10132020, publisher: 'Thomas Dunne Books'  });
-    expect(resp.status).toBe(200);
-    expect(resp.body.title).toBe('Zoey Punches the Future');
-    
+      .send({ title: 'This is a book', release:10132020, publisher: 'Thomas Dunne Books'  });
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      'title': expect.any(String),
+      'release': expect.any(Number),
+      'publisher': expect.any(String)
+    });
+
   });
   afterAll(() => {
     pool.end();
